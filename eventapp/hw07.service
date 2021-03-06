@@ -3,8 +3,8 @@ Description=HW07
 
 [Service]
 Type=simple
-User=hw07
-Group=hw07
+User=root
+Group=root
 Restart=on-failure
 Environment=MIX_ENV=prod
 Environment=PORT=4795
