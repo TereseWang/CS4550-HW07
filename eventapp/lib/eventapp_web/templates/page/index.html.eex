@@ -1,0 +1,15 @@
+<div>
+  <%= link "New Event", to: Routes.event_path(@conn, :new), class: "btn-lg font-weight-bold btn btn-info"%>
+  <%= link "Check All Available Users", to: Routes.user_path(@conn, :index), class: "ml-5 font-weight-bold text-info"%>
+  <%= for event <- @events do %>
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2><%= link event.name, to: Routes.event_path(@conn, :show, event), class: "mr-2 font-weight-bold" %></h2>
+      <h5 class="card-text my-4">Date: <%= event.date %></h5>
+      <p class="card-text"><%= event.description %></p>
+      <%= link "Edit", to: Routes.event_path(@conn, :edit, event), class: "mr-2 font-weight-bold btn btn-info"%>
+      <%= link "Delete", to: Routes.event_path(@conn, :delete, event), method: :delete, data: [confirm: "Are you sure?"], class: "mr-2 font-weight-bold btn btn-danger"%>
+    </div>
+  </div>
+  <% end %>
+</div>

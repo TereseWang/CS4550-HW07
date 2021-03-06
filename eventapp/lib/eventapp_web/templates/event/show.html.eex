@@ -1,0 +1,7 @@
+<h1 class="font-weight-bold text-info "><%= @event.name %></h1>
+<h4 class="text-secondary">Date: <%= @event.date %></h4>
+<h4><%= @event.description %></h4>
+<%= link "Edit", to: Routes.event_path(@conn, :edit, @event), class: "mr-2 font-weight-bold btn btn-info"%>
+<%= link "Back", to: "/", class: "mr-2 font-weight-bold btn btn-info" %>
+<%= link "Delete", to: Routes.event_path(@conn, :delete, @event),
+    method: :delete, data: [confirm: "Are you sure?"], class: "mr-2 font-weight-bold btn btn-danger"%>
