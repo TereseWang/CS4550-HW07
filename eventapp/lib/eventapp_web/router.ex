@@ -20,15 +20,18 @@ defmodule EventappWeb.Router do
     get "/", PageController, :index
     resources "/events", EventController
     resources "/users", UserController
-
+    get "/users/:id/photo", UserController, :photo
+    resources "/comments", CommentController
+    resources "/invites", InviteController
     resources "/sessions", SessionController,
       only: [:create, :delete], singleton: true
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", EventappWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", EventappWeb do
+     pipe_through :api
+     resources "/votes", VoteController, except: [:new, :edit]
+  end
 
   # Enables LiveDashboard only for development
   #

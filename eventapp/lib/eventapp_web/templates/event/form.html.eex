@@ -21,6 +21,6 @@
 </div>
 <div>
   <%= submit "Save" , class: "btn btn-lg btn-primary mr-2 font-weight-bold"%>
-  <%= link "Cancle", to: "/", class: "btn btn-lg btn-light text-dark mr-2 font-weight-bold"%>
+  <%= link "Cancle", to: Routes.event_path(@conn, :show, @event), class: "btn btn-lg btn-light text-dark mr-2 font-weight-bold"%>
 </div>
 <% end %>

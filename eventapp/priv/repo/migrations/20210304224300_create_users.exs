@@ -5,10 +5,9 @@ defmodule Eventapp.Repo.Migrations.CreateUsers do
     create table(:users) do
       add :name, :string, null: false
       add :email, :string
-
+      add :photo_hash, :string, null: false
       timestamps()
     end
-
     create unique_index(:users, [:email])
   end
 end

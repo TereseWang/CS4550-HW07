@@ -19,7 +19,20 @@ defmodule Eventapp.Events do
   """
   def list_events do
     Repo.all(Event)
+    |> Repo.preload(:user)
   end
+
+  # From Nat Tuck Lecture notes photo_blog/lib/photo_blog/posts.ex
+  def load_votes(events) do
+    events = Repo.preload(events, :votes)
+    Enum.map events, fn event ->
+      score = event.votes
+      |> Enum.map(&(&1.votes))
+      |> Enum.sum()
+      %{ event | score: score }
+    end
+  end
+
 
   @doc """
   Gets a single event.
@@ -37,6 +50,13 @@ defmodule Eventapp.Events do
   """
   def get_event!(id), do: Repo.get!(Event, id)
 
+  def load_comments(%Event{} = event) do
+    Repo.preload(event, [comments: :user])
+  end
+
+  def load_invites(%Event{} = event) do
+    Repo.preload(event, [invites: :user])
+  end
   @doc """
   Creates a event.
 

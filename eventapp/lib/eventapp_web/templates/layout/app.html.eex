@@ -17,7 +17,10 @@
             app.html.eex in photoblog-->
         <%= if @conn.assigns[:current_user] do %>
         <h4 class="mt-2 font-weight-bold">
-          User: <%= @current_user.name%> |
+          <img src="<%= Routes.user_path(@conn, :photo, @current_user) %>"
+            alt=""
+            height=50 width=50>
+          <%= @current_user.name%> |
           <%= link("Logout", to: Routes.session_path(@conn, :delete),
           method: :delete, class: "text-primary") %>
         </h4>
@@ -32,10 +35,10 @@
           <% end %>
           <h5 class="display-5 pl-4">Enter Email To Login</h5>
         </div>
+        <li class="nav-item mt-4 ml-2">
+          <%= link "Sign Up", to: Routes.user_path(@conn, :new), class: "font-weight-bold btn btn-success"%>
+        </li>
         <% end %>
-      </li>
-      <li class="nav-item mt-4 ml-2">
-        <%= link "Sign Up", to: Routes.user_path(@conn, :new), class: "font-weight-bold btn btn-success"%>
       </li>
     </ul>
   </nav>
