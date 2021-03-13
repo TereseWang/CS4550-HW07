@@ -18,7 +18,7 @@ http://events.teresewang.com
 
 4. Is your app functionality complete? If not, what's missing?
 
-most functionality is most complete, except didn't generate a link for owner to copy, i guess they can just copy the event url, and also some design decisions, so first when the invited emails does not have an associated account, system will auto generate one for the email, and also we must upload a photo in order to complete the registration. 
+most functionality is most complete, except for some design decisions, so first when the invited emails does not have an associated account, system will auto generate one for the email, and also we must upload a photo in order to complete the registration. 
 
 5. Is your app properly deployed? If not, what went wrong?
 
